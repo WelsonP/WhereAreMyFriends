@@ -15,26 +15,53 @@ import SceneKit.ModelIO
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
+    fileprivate let myfriend = Friend(id: "FAKE_ID", firstName: "Welson", lastName: "Pan", longitude: -79.411079, latitude: 43.761539)
+
+    fileprivate let locationManager = CLLocationManager()
+
+    var friendDetailView: FriendDetailView?
+
+    var mostRecentUserLocation: CLLocation? = CLLocation(latitude: 37.780506, longitude: 37.780506)
+
+    var friends: [Friend] = [] {
+        didSet {
+            guard let userLocation = mostRecentUserLocation else {
+                return
+            }
+
+            for friend in friends {
+                if let existingNode = friendNodes[friend.id] {
+                    let move = SCNAction.move(to: friend.sceneKitCoordinate(relativeTo: userLocation), duration: TimeInterval(0.5))
+                    existingNode.runAction(move)
+                } else {
+                    let newNode = newFriendNode()
+                    friendNodes[friend.id] = newNode
+
+                    newNode.position = friend.sceneKitCoordinate(relativeTo: userLocation)
+                    newNode.rotation = friend.sceneKitRotation()
+                    sceneView.scene.rootNode.addChildNode(newNode)
+                }
+            }
+        }
+    }
+
+    var friendNodes = [String: SCNNode]()
+
     // MARK: - Lifecycle
+
+    override func loadView() {
+        view = sceneView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Set the view's delegate
-        sceneView.delegate = self
-
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
-
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-
-        // Set the scene to the view
-        sceneView.scene = scene
-        sceneView.antialiasingMode = .multisampling2X
-        view = sceneView
+        setupSceneView()
+        setupGestureRecognizer()
+        // FIXME: This is hardcoding a friend
+        friends = [myfriend]
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -44,32 +71,106 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Run the view's session
         configuration.worldAlignment = .gravityAndHeading
         sceneView.session.run(configuration)
+        setupLocationManager()
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         // Pause the view's session
         sceneView.session.pause()
     }
-    
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
-        
+
+    // MARK: - Private
+
+    private func setupSceneView() {
+        sceneView.delegate = self
+        sceneView.showsStatistics = true
+
+//        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+//        sceneView.scene = scene
+        sceneView.antialiasingMode = .multisampling2X
     }
-    
+
+    private func setupGestureRecognizer() {
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        tapRecognizer.numberOfTapsRequired = 1
+        tapRecognizer.numberOfTouchesRequired = 1
+        sceneView.gestureRecognizers = [tapRecognizer]
+    }
+
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        let location = sender.location(in: sceneView)
+
+        let hitResults = sceneView.hitTest(location, options: nil)
+        if hitResults.count > 0 {
+            guard let friendNode = hitResults.first?.node,
+                let id = friendNodes.keys.first,
+                let friend = friends.first(where: { $0.id == id }) else { return }
+            addDetailView(for: friend, in: friendNode)
+        }
+    }
+
+    func addDetailView(for friend: Friend, in node: SCNNode) {
+        // TODO: implement me
+    }
+
+    func session(_ session: ARSession, didFailWithError error: Error) {
+        print("Session did fail with error: \(error)")
+    }
+
     func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
+        print("Session has been interrupted")
     }
     
     func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
-
+        print("Session interruption ended")
     }
 
     private var sceneView: ARSCNView = {
         let sceneView = ARSCNView(frame: .zero)
         return sceneView
     }()
+
+    // reorganize this file later
+
+    lazy var friendModel: MDLObject = {
+        let friendAssetUrl = Bundle.main.url(forResource: "777", withExtension: "obj")!
+        return MDLAsset(url: friendAssetUrl).object(at: 0)
+    }()
+
+    private func newFriendNode() -> SCNNode {
+        let friendNode = SCNNode(mdlObject: friendModel)
+
+        let planeMaterial = SCNMaterial()
+        planeMaterial.diffuse.contents = UIColor(white:0.88, alpha:1.0)
+//        planeMaterial.reflective.contents = #imageLiteral(resourceName: "night")
+        friendNode.geometry?.materials = [planeMaterial]
+
+        let cylinder = SCNCylinder(radius: 30, height: 20)
+        cylinder.firstMaterial?.diffuse.contents = UIColor.clear
+        let largerNode = SCNNode(geometry: cylinder)
+        largerNode.addChildNode(friendNode)
+
+        return largerNode
+    }
+}
+
+// MARK: - CLLocationManagerDelegate
+
+extension ViewController: CLLocationManagerDelegate {
+
+    func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        mostRecentUserLocation = locations[0] as CLLocation
+    }
 }

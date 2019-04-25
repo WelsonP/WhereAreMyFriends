@@ -12,6 +12,9 @@
 		8724949C2272429200305A03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8724949B2272429200305A03 /* ViewController.swift */; };
 		872494A12272429400305A03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 872494A02272429400305A03 /* Assets.xcassets */; };
 		872494AC227249DE00305A03 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 872494AB227249DE00305A03 /* Launch Screen.storyboard */; };
+		872494AE2272592000305A03 /* FriendDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872494AD2272592000305A03 /* FriendDetailView.swift */; };
+		872494B022725A0F00305A03 /* 777.obj in Resources */ = {isa = PBXBuildFile; fileRef = 872494AF22725A0F00305A03 /* 777.obj */; };
+		872494B22272648400305A03 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872494B12272648400305A03 /* Friend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		872494A02272429400305A03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		872494A52272429400305A03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		872494AB227249DE00305A03 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		872494AD2272592000305A03 /* FriendDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailView.swift; sourceTree = "<group>"; };
+		872494AF22725A0F00305A03 /* 777.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 777.obj; sourceTree = "<group>"; };
+		872494B12272648400305A03 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +60,15 @@
 		872494962272429200305A03 /* WhereAreMyFriends */ = {
 			isa = PBXGroup;
 			children = (
+				872494AF22725A0F00305A03 /* 777.obj */,
+				872494AD2272592000305A03 /* FriendDetailView.swift */,
 				872494972272429200305A03 /* AppDelegate.swift */,
 				872494992272429200305A03 /* art.scnassets */,
 				8724949B2272429200305A03 /* ViewController.swift */,
 				872494A02272429400305A03 /* Assets.xcassets */,
 				872494A52272429400305A03 /* Info.plist */,
 				872494AB227249DE00305A03 /* Launch Screen.storyboard */,
+				872494B12272648400305A03 /* Friend.swift */,
 			);
 			path = WhereAreMyFriends;
 			sourceTree = "<group>";
@@ -123,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				872494AC227249DE00305A03 /* Launch Screen.storyboard in Resources */,
+				872494B022725A0F00305A03 /* 777.obj in Resources */,
 				8724949A2272429200305A03 /* art.scnassets in Resources */,
 				872494A12272429400305A03 /* Assets.xcassets in Resources */,
 			);
@@ -135,8 +145,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				872494AE2272592000305A03 /* FriendDetailView.swift in Sources */,
 				8724949C2272429200305A03 /* ViewController.swift in Sources */,
 				872494982272429200305A03 /* AppDelegate.swift in Sources */,
+				872494B22272648400305A03 /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
