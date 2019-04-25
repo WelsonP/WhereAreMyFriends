@@ -15,13 +15,13 @@ import SceneKit.ModelIO
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
-    fileprivate let myfriend = Friend(id: "FAKE_ID", firstName: "Welson", lastName: "Pan", longitude: -79.411079, latitude: 43.761539)
+    fileprivate let myfriend = Friend(id: "FAKE_ID", firstName: "Welson", lastName: "Pan", longitude: -122.431297, latitude: 37.780506)
 
     fileprivate let locationManager = CLLocationManager()
 
     var friendDetailView: FriendDetailView?
 
-    var mostRecentUserLocation: CLLocation? = CLLocation(latitude: 37.780506, longitude: 37.780506)
+    var mostRecentUserLocation: CLLocation? = CLLocation(latitude: 37.780506, longitude: -122.431297)
 
     var friends: [Friend] = [] {
         didSet {
@@ -144,7 +144,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         let planeMaterial = SCNMaterial()
         planeMaterial.diffuse.contents = UIColor(white:0.88, alpha:1.0)
-//        planeMaterial.reflective.contents = #imageLiteral(resourceName: "night")
+        planeMaterial.reflective.contents = #imageLiteral(resourceName: "night")
         friendNode.geometry?.materials = [planeMaterial]
 
         let cylinder = SCNCylinder(radius: 30, height: 20)
