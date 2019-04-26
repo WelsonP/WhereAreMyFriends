@@ -17,6 +17,7 @@
 		875AFB64227284460050172E /* stickman.obj in Resources */ = {isa = PBXBuildFile; fileRef = 875AFB63227284460050172E /* stickman.obj */; };
 		875AFB67227288DB0050172E /* girl.obj in Resources */ = {isa = PBXBuildFile; fileRef = 875AFB65227288DB0050172E /* girl.obj */; };
 		875AFB68227288DB0050172E /* car.obj in Resources */ = {isa = PBXBuildFile; fileRef = 875AFB66227288DB0050172E /* car.obj */; };
+		875AFB6C227292BC0050172E /* FriendDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 875AFB6B227292BC0050172E /* FriendDetail.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		875AFB63227284460050172E /* stickman.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stickman.obj; sourceTree = "<group>"; };
 		875AFB65227288DB0050172E /* girl.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = girl.obj; sourceTree = "<group>"; };
 		875AFB66227288DB0050172E /* car.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = car.obj; sourceTree = "<group>"; };
+		875AFB6B227292BC0050172E /* FriendDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FriendDetail.xib; path = "../../AR-Planes/AR Planes/Views/FriendDetail.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				875AFB63227284460050172E /* stickman.obj */,
 				872494AD2272592000305A03 /* FriendDetailView.swift */,
 				872494972272429200305A03 /* AppDelegate.swift */,
+				875AFB6B227292BC0050172E /* FriendDetail.xib */,
 				872494992272429200305A03 /* art.scnassets */,
 				8724949B2272429200305A03 /* ViewController.swift */,
 				872494A02272429400305A03 /* Assets.xcassets */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				875AFB68227288DB0050172E /* car.obj in Resources */,
+				875AFB6C227292BC0050172E /* FriendDetail.xib in Resources */,
 				872494AC227249DE00305A03 /* Launch Screen.storyboard in Resources */,
 				875AFB67227288DB0050172E /* girl.obj in Resources */,
 				8724949A2272429200305A03 /* art.scnassets in Resources */,

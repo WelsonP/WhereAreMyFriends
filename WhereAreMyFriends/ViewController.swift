@@ -208,7 +208,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let friendNode = SCNNode(mdlObject: friendModel)
 
         let planeMaterial = SCNMaterial()
-//        planeMaterial.diffuse.contents = UIColor(white:0.88, alpha:1.0)
         planeMaterial.diffuse.contents = #imageLiteral(resourceName: "skintest")
         friendNode.geometry?.materials = [planeMaterial]
 
