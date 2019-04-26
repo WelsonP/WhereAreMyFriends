@@ -33,7 +33,7 @@
 		875AFB63227284460050172E /* stickman.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stickman.obj; sourceTree = "<group>"; };
 		875AFB65227288DB0050172E /* girl.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = girl.obj; sourceTree = "<group>"; };
 		875AFB66227288DB0050172E /* car.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = car.obj; sourceTree = "<group>"; };
-		875AFB6B227292BC0050172E /* FriendDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FriendDetail.xib; path = "../../AR-Planes/AR Planes/Views/FriendDetail.xib"; sourceTree = "<group>"; };
+		875AFB6B227292BC0050172E /* FriendDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendDetail.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
