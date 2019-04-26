@@ -59,7 +59,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
                     newNode.position = friend.sceneKitCoordinate(relativeTo: userLocation)
                     newNode.rotation = friend.sceneKitRotation()
-                    newNode.scale = SCNVector3(0.2, 0.2, 0.2)
+//                    newNode.scale = SCNVector3(0.2, 0.2, 0.2)
                     sceneView.scene.rootNode.addChildNode(newNode)
                 }
             }
@@ -200,7 +200,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     // reorganize this file later
 
     lazy var friendModel: MDLObject = {
-        let friendAssetUrl = Bundle.main.url(forResource: "stickman", withExtension: "obj")!
+        let friendAssetUrl = Bundle.main.url(forResource: "girl", withExtension: "obj")!
         return MDLAsset(url: friendAssetUrl).object(at: 0)
     }()
 
@@ -208,8 +208,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let friendNode = SCNNode(mdlObject: friendModel)
 
         let planeMaterial = SCNMaterial()
-        planeMaterial.diffuse.contents = UIColor(white:0.88, alpha:1.0)
-        planeMaterial.reflective.contents = #imageLiteral(resourceName: "night")
+//        planeMaterial.diffuse.contents = UIColor(white:0.88, alpha:1.0)
+        planeMaterial.diffuse.contents = #imageLiteral(resourceName: "skintest")
         friendNode.geometry?.materials = [planeMaterial]
 
         let cylinder = SCNCylinder(radius: 30, height: 20)
