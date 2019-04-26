@@ -15,7 +15,38 @@ import SceneKit.ModelIO
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
-    fileprivate let myfriend = Friend(id: "FAKE_ID", firstName: "Welson", lastName: "Pan", longitude: -122.431297, latitude: 37.780506)
+    fileprivate let myfriend = Friend(id: "FAKE_ID", firstName: "Welson", lastName: "Pan", longitude: -122.431297, latitude: 37.830506)
+    fileprivate let myfriend1 = Friend(id: "FAKE_ID1", firstName: "Welson", lastName: "Pan", longitude: -122.431297, latitude: 37.730506)
+    fileprivate let myfriend2 = Friend(id: "FAKE_ID2", firstName: "Welson", lastName: "Pan", longitude: -122.481297, latitude: 37.730506)
+    fileprivate let myfriend3 = Friend(id: "FAKE_ID3", firstName: "Welson", lastName: "Pan", longitude: -122.331297, latitude: 37.730506)
+    fileprivate let myfriend4 = Friend(id: "FAKE_ID4", firstName: "Welson", lastName: "Pan", longitude: -122.481297, latitude: 37.830506)
+    fileprivate let myfriend5 = Friend(id: "FAKE_ID5", firstName: "Welson", lastName: "Pan", longitude: -122.331297, latitude: 37.830506)
+    fileprivate let myfriend6 = Friend(id: "FAKE_ID6", firstName: "Welson", lastName: "Pan", longitude: -122.381297, latitude: 37.840506)
+    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
+//    fileprivate let myfriend7 = Friend(id: "FAKE_ID7", firstName: "Welson", lastName: "Pan", longitude: -122.401297, latitude: 37.800506)
 
     fileprivate let locationManager = CLLocationManager()
 
@@ -39,6 +70,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
                     newNode.position = friend.sceneKitCoordinate(relativeTo: userLocation)
                     newNode.rotation = friend.sceneKitRotation()
+                    newNode.scale = SCNVector3(0.2, 0.2, 0.2)
                     sceneView.scene.rootNode.addChildNode(newNode)
                 }
             }
@@ -59,7 +91,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         setupSceneView()
         setupGestureRecognizer()
         // FIXME: This is hardcoding a friend
-        friends = [myfriend]
+        friends = [myfriend, myfriend1, myfriend2, myfriend3, myfriend4, myfriend5, myfriend6, myfriend7]
     }
 
     override func viewWillAppear(_ animated: Bool) {
