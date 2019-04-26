@@ -144,7 +144,51 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
 
     func addDetailView(for friend: Friend, in node: SCNNode) {
-        // TODO: implement me
+        let detailView: FriendDetailView
+
+        if let existingDetailView = friendDetailView {
+            detailView = existingDetailView
+        } else {
+            detailView = FriendDetailView()
+            friendDetailView = detailView
+            self.view.addSubview(detailView)
+
+            detailView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            detailView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        }
+
+        detailView.alpha = 1.0
+        updatePositionOfDetailView()
+    }
+
+    func updatePositionOfDetailView() {
+//        guard let detailView = friendDetailView,
+//            let friend = detailView.friend,
+//            let node = friendNodes[friend.id] else
+//        {
+//            return
+//        }
+//
+//        let centerPoint = node.position
+//        let projectedPoint = sceneView.projectPoint(centerPoint)
+//
+//        let translate = CGAffineTransform(
+//            translationX: CGFloat(projectedPoint.x) - statusCardView.intrinsicContentSize.width/2.2,
+//            y: CGFloat(projectedPoint.y) - 14)
+//
+//        let translateAndScale = translate.scaledBy(x: 0.65, y: 0.65)
+//
+//        DispatchQueue.main.async {
+//            statusCardView.transform = translateAndScale
+//
+//            //if z if less than 1, then the point is behind the camera
+//            // this is a little buggy sometimes.
+//            if projectedPoint.z > 1 {
+//                statusCardView.alpha = 0.0
+//            } else {
+//                statusCardView.alpha = 1.0
+//            }
+//        }
     }
 
     func session(_ session: ARSession, didFailWithError error: Error) {
@@ -167,7 +211,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     // reorganize this file later
 
     lazy var friendModel: MDLObject = {
-        let friendAssetUrl = Bundle.main.url(forResource: "777", withExtension: "obj")!
+        let friendAssetUrl = Bundle.main.url(forResource: "stickman", withExtension: "obj")!
         return MDLAsset(url: friendAssetUrl).object(at: 0)
     }()
 

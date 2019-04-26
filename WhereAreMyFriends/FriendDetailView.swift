@@ -9,6 +9,16 @@
 import UIKit
 
 class FriendDetailView: UIView {
+    var friend: Friend?
+
+    init() {
+        super.init(frame: .zero)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(frame: .zero)
+    }
+
     func configureViewWithFriend(_ friend: Friend) {
 
     }
