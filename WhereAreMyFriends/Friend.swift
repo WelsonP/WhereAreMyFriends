@@ -40,17 +40,37 @@ struct Friend {
         let headingRadians = heading * (.pi/180)
 
         let distanceScale: Double = 1/140
-        let eastWestOffset = distance * sin(headingRadians) * distanceScale
-        let northSouthOffset = distance * cos(headingRadians)  * distanceScale
+        var eastWestOffset = distance * sin(headingRadians) * distanceScale
+        var northSouthOffset = distance * cos(headingRadians)  * distanceScale
 
         let altitudeScale: Double = 1/140 //1/20
-        let upDownOffset = altitude * altitudeScale
+        var upDownOffset = altitude * altitudeScale
+
+        // scale maximum and minimum position
+        let closest = 0.15
+        let furthest = 4.0
+
+        let ew = eastWestOffset.magnitude
+        let ud = upDownOffset.magnitude
+        let ns = northSouthOffset.magnitude
+        var factor = 1.0
+
+        let norm = sqrt(ew*ew + ud*ud + ns*ns)
+        if norm < closest {
+            factor = closest / norm
+        } else if norm > furthest {
+            factor = furthest / norm
+        }
+
+        eastWestOffset *= factor
+        upDownOffset *= factor
+        northSouthOffset *= factor
 
         return SCNVector3(eastWestOffset, upDownOffset, -northSouthOffset)
     }
 
     func sceneKitRotation() -> SCNVector4 {
-        return SCNVector4(0, 1, 0, .pi - ((64.0 * (.pi/180)) - .pi))
+        return SCNVector4(0, 1, 0, .pi - ((100.0 * (.pi/180)) - .pi))
     }
 
     // MARK: - Initializers

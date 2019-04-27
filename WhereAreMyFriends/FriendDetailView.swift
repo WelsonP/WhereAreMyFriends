@@ -24,14 +24,14 @@ class FriendDetailView: UINibView {
 
     }
 
-    @IBOutlet weak var avatarView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var distance: UILabel!
 
     // MARK: - Setup
 
     override var nibName: String {
-        return "FriendDetail"
+        return "FriendDetailView"
     }
 
     override func nibWasLoaded() {
@@ -64,15 +64,18 @@ class FriendDetailView: UINibView {
     {
         self.friend = friend
 
-        nameLabel.text = friend.firstName
+        name.text = friend.firstName
 
         let distanceMeters = friend.location.distance(from: userLocation)
 
         if distanceMeters < 1000.0 {
-            distanceLabel.text = "\(Int(round(distanceMeters)))m"
+            distance.text = "\(Int(round(distanceMeters)))m away"
         } else {
-            distanceLabel.text = "\(Int(round(distanceMeters / 1000.0)))km"
+            let rounded: Double = Double(round(((distanceMeters / 1000.0)) * 10)) / 10.0
+            distance.text = "\(rounded) km away"
         }
+
+        avatar.image = UIImage(named: "defaultAvatar.png")
 
         //load image from URL
 //        guard let logoImageView = self.logoImageView else { return }

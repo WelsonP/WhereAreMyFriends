@@ -16,8 +16,10 @@
 		872494B22272648400305A03 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872494B12272648400305A03 /* Friend.swift */; };
 		875AFB64227284460050172E /* stickman.obj in Resources */ = {isa = PBXBuildFile; fileRef = 875AFB63227284460050172E /* stickman.obj */; };
 		875AFB67227288DB0050172E /* girl.obj in Resources */ = {isa = PBXBuildFile; fileRef = 875AFB65227288DB0050172E /* girl.obj */; };
-		875AFB68227288DB0050172E /* car.obj in Resources */ = {isa = PBXBuildFile; fileRef = 875AFB66227288DB0050172E /* car.obj */; };
-		875AFB6C227292BC0050172E /* FriendDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 875AFB6B227292BC0050172E /* FriendDetail.xib */; };
+		875AFB6C227292BC0050172E /* FriendDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 875AFB6B227292BC0050172E /* FriendDetailView.xib */; };
+		875AFB872273B5C50050172E /* MyFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875AFB862273B5C50050172E /* MyFriends.swift */; };
+		875AFB892273BB170050172E /* mapPin.tif in Resources */ = {isa = PBXBuildFile; fileRef = 875AFB882273BB160050172E /* mapPin.tif */; };
+		875AFB8D2274235E0050172E /* defaultAvatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 875AFB8C2274235E0050172E /* defaultAvatar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +34,10 @@
 		872494B12272648400305A03 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		875AFB63227284460050172E /* stickman.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stickman.obj; sourceTree = "<group>"; };
 		875AFB65227288DB0050172E /* girl.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = girl.obj; sourceTree = "<group>"; };
-		875AFB66227288DB0050172E /* car.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = car.obj; sourceTree = "<group>"; };
-		875AFB6B227292BC0050172E /* FriendDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendDetail.xib; sourceTree = "<group>"; };
+		875AFB6B227292BC0050172E /* FriendDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendDetailView.xib; sourceTree = "<group>"; };
+		875AFB862273B5C50050172E /* MyFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriends.swift; sourceTree = "<group>"; };
+		875AFB882273BB160050172E /* mapPin.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = mapPin.tif; sourceTree = "<group>"; };
+		875AFB8C2274235E0050172E /* defaultAvatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultAvatar.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,18 +70,20 @@
 		872494962272429200305A03 /* WhereAreMyFriends */ = {
 			isa = PBXGroup;
 			children = (
-				875AFB66227288DB0050172E /* car.obj */,
+				875AFB882273BB160050172E /* mapPin.tif */,
 				875AFB65227288DB0050172E /* girl.obj */,
 				875AFB63227284460050172E /* stickman.obj */,
 				872494AD2272592000305A03 /* FriendDetailView.swift */,
 				872494972272429200305A03 /* AppDelegate.swift */,
-				875AFB6B227292BC0050172E /* FriendDetail.xib */,
+				875AFB6B227292BC0050172E /* FriendDetailView.xib */,
 				872494992272429200305A03 /* art.scnassets */,
 				8724949B2272429200305A03 /* ViewController.swift */,
 				872494A02272429400305A03 /* Assets.xcassets */,
+				875AFB8C2274235E0050172E /* defaultAvatar.png */,
 				872494A52272429400305A03 /* Info.plist */,
 				872494AB227249DE00305A03 /* Launch Screen.storyboard */,
 				872494B12272648400305A03 /* Friend.swift */,
+				875AFB862273B5C50050172E /* MyFriends.swift */,
 			);
 			path = WhereAreMyFriends;
 			sourceTree = "<group>";
@@ -140,8 +146,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				875AFB68227288DB0050172E /* car.obj in Resources */,
-				875AFB6C227292BC0050172E /* FriendDetail.xib in Resources */,
+				875AFB892273BB170050172E /* mapPin.tif in Resources */,
+				875AFB6C227292BC0050172E /* FriendDetailView.xib in Resources */,
+				875AFB8D2274235E0050172E /* defaultAvatar.png in Resources */,
 				872494AC227249DE00305A03 /* Launch Screen.storyboard in Resources */,
 				875AFB67227288DB0050172E /* girl.obj in Resources */,
 				8724949A2272429200305A03 /* art.scnassets in Resources */,
@@ -160,6 +167,7 @@
 				872494AE2272592000305A03 /* FriendDetailView.swift in Sources */,
 				8724949C2272429200305A03 /* ViewController.swift in Sources */,
 				872494982272429200305A03 /* AppDelegate.swift in Sources */,
+				875AFB872273B5C50050172E /* MyFriends.swift in Sources */,
 				872494B22272648400305A03 /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
